@@ -2,6 +2,13 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
+        <div class="mt-4">
+            <a href="{{ route('google.redirect') }}"
+                class="underline text-sm text-gray-600 hover:text-gray-900">
+                Iniciar sesión con Google
+            </a>
+        </div>
+
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
