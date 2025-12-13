@@ -5,6 +5,14 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
+        <div class="mt-4">
+            <a href="{{ route('google.redirect') }}"
+                class="underline text-sm text-gray-600 hover:text-gray-900">
+                Iniciar sesión con Google
+            </a>
+        </div>
+
+
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
