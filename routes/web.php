@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+
+use App\Http\Controllers\DashboardController;
+
 use Illuminate\Support\Facades\Route;
 
 use Laravel\Socialite\Facades\Socialite;
@@ -9,6 +12,11 @@ use App\Models\User;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth'])
+    ->name('dashboard');
 
 
 Route::get('/auth/google', function () {
@@ -40,14 +48,12 @@ Route::get('google-auth/redirect', function(){
 
 Route::get('google-auth/callback', function(){
     $user = Socialite::driver('google')->user();
-
-    // $user->token
 });
 
 
-Route::get('/dashboard', function () {
+/*Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');*/
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
