@@ -2,33 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-.text-animado {
-    display: inline-block;
-    font-size: 3rem;
-    font-weight: 800;
-    font-family: "Noto Sans", sans-serif;
-
-    width: 600px;              /* CLAVE */
-    text-align: center;
-
-    background-image: url('/images/gladiador.jpg');
-    background-size: 1200px;   /* MÁS GRANDE QUE EL TEXTO */
-    background-repeat: repeat;
-    background-position: 0 50%;
-
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-
-    animation: moveBg 5s linear infinite;
-}
-
-@keyframes moveBg {
-    from {
-        background-position: 0 50%;
-    }
-    to {
-        background-position: -600px 50%;
-    }
-}
